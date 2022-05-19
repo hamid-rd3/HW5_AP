@@ -1,5 +1,7 @@
 #ifndef INGREDIENT_H
 #define INGREDIENT_H
+#include <string>
+#include <vector>
 
 class Ingredient {
 public:

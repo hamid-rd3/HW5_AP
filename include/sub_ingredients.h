@@ -1,12 +1,13 @@
 #ifndef SUB_INGREDIENTS_H
 #define SUB_INGREDIENTS_H
+#include "ingredient.h"
 #define DEFCLASS(nameofclass, price_unit)                              \
     class nameofclass : public Ingredient {                            \
     public:                                                            \
         nameofclass(size_t units)                                      \
             : Ingredient(price_unit, units)                            \
         {                                                              \
-            this->name = #nameofclass;                  \
+            this->name = #nameofclass;                                 \
         }                                                              \
         virtual std::string get_name() override { return this->name; } \
     };

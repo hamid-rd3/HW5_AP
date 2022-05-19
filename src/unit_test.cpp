@@ -14,7 +14,7 @@ TEST(HW5Test, TEST1) {
     EXPECT_EQ(cinnamon.get_units(), 2);
     EXPECT_EQ(cinnamon.price(), 10);
 }
-/*
+
 TEST(HW5Test, TEST2) {
     Cinnamon    cinnamon{1};  
     Chocolate   chocolate{1};
@@ -52,7 +52,7 @@ TEST(HW5Test, TEST4) {
     for(const auto& i : ingredients)
         EXPECT_TRUE(i->get_name() == "Espresso" || i->get_name() == "Milk" || i->get_name() == "MilkFoam");
 }
-
+/*
 TEST(HW5Test, TEST5) {
     Cappuccino cappuccino{};
     EXPECT_DOUBLE_EQ(cappuccino.price(), 55);
