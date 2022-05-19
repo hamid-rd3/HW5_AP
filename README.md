@@ -63,7 +63,7 @@ Now we are going to use the above class and implement the actual ingredients we 
 - **MilkFoam** - *price per unit: 5*
 - **Water** - *price per unit: 1*
 
-Derive a class for each of these items from our base class (Ingredient class) and assign the necessary values so that the test cases would pass. like below.
+Derive a class for each of these items from our base class (Ingredient class) and assign the necessary price_units so that the test cases would pass. like below.
 
 ```cpp
 class Cinnamon
