@@ -1,5 +1,6 @@
 #include "cappuccino.h"
 #include <numeric>
+#include <iostream>
 Cappuccino::Cappuccino()
 {
     ingredients.push_back(new Espresso { 2 });
@@ -21,4 +22,13 @@ double Cappuccino::price() const
         sum += v->price();
     }
     return sum;
+}
+
+Cappuccino::~Cappuccino()
+{
+    for(const auto& i : side_items)
+        delete i;
+    side_items.clear();
+        // std::cout <<"adas"<<std::endl;
+
 }

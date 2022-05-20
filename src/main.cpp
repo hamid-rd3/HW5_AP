@@ -13,13 +13,11 @@ int main(int argc, char** argv)
 {
     if (false) // make false to run unit-tests
     {
-        // QApplication app(argc, argv);
-        // QLabel hola("<center>Ejemplo Qt para Ubunlog</center>");
-        // hola.setWindowTitle("Mi primer programa Qt");
-        // hola.resize(600, 400);
-        // hola.show();
-        // return app.exec();
-
+        EspressoBased* esp { new Cappuccino {} };
+        reinterpret_cast<Cappuccino*>(esp)->add_side_item(new Cookie { 1 });
+        std::vector<Ingredient*>& sides = reinterpret_cast<Cappuccino*>(esp)->get_side_items();
+        delete esp;
+        std::cout << sides.size() << std::endl;
     } else {
         ::testing::InitGoogleTest(&argc, argv);
         std::cout << "RUNNING TESTS ..." << std::endl;
