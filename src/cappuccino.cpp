@@ -77,7 +77,6 @@ double Cappuccino::price() const
     }
     for (auto& v : side_items) {
         sum += v->price();
-        // std::cout << v->get_name() << std::endl;
     }
     return sum;
 }
@@ -87,5 +86,4 @@ Cappuccino::~Cappuccino()
     for (const auto& i : side_items)
         delete i;
     side_items.clear();
-    // std::cout <<"adas"<<std::endl;
 }
