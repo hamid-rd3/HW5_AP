@@ -52,7 +52,6 @@ EspressoBased::~EspressoBased()
     for (const auto& i : ingredients)
         delete i;
     ingredients.clear();
-    // std::cout <<"espressobase destructor called "<<std::endl;
 }
 
 void EspressoBased::brew()
