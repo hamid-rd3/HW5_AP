@@ -14,7 +14,7 @@ TEST(HW5Test, TEST1) {
     EXPECT_EQ(cinnamon.get_units(), 2);
     EXPECT_EQ(cinnamon.price(), 10);
 }
-/*
+
 TEST(HW5Test, TEST2) {
     Cinnamon    cinnamon{1};  
     Chocolate   chocolate{1};
@@ -121,7 +121,7 @@ TEST(HW5Test, TEST12) {
     Mocha mocha{};
     mocha.brew();
 }
-*/
+
 
 
 
