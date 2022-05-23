@@ -9,7 +9,7 @@
         {                                                              \
             this->name = #nameofclass;                                 \
         }                                                              \
-        virtual std::string get_name() override { return this->name; } \
+        virtual std::string get_name() const override { return this->name; } \
     };
 DEFCLASS(Cinnamon, 5);
 DEFCLASS(Chocolate, 5);

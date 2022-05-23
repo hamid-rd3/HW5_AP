@@ -13,11 +13,11 @@ public:
     virtual ~EspressoBased();
 
 protected:
-    // EspressoBased();
-    // EspressoBased(const EspressoBased& esp);
-    // void operator=(const EspressoBased& esp);
+     EspressoBased()=default;
+     EspressoBased(const EspressoBased& esp);
+     void operator=(const EspressoBased& esp);
 
     std::vector<Ingredient*> ingredients;
-    std::string name;
+    std::string name{};
 };
 #endif // ESPRESSO_BASED_H

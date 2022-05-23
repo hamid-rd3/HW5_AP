@@ -9,7 +9,7 @@ public:
     virtual ~Cappuccino();
     void operator=(const Cappuccino& cap);
 
-    virtual std::string get_name() const override { return "Cappuccino"; }
+    virtual std::string get_name() const override { return name; }
     virtual double price() const override;
 
     void add_side_item(Ingredient* side);

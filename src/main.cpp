@@ -13,11 +13,8 @@ int main(int argc, char** argv)
 {
     if (false) // make false to run unit-tests
     {
-        EspressoBased* esp { new Cappuccino {} };
-        reinterpret_cast<Cappuccino*>(esp)->add_side_item(new Cookie { 1 });
-        std::vector<Ingredient*>& sides = reinterpret_cast<Cappuccino*>(esp)->get_side_items();
-        delete esp;
-        std::cout << sides.size() << std::endl;
+            Cappuccino cappuccino;
+
     } else {
         ::testing::InitGoogleTest(&argc, argv);
         std::cout << "RUNNING TESTS ..." << std::endl;
