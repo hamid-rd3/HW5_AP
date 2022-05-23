@@ -1,5 +1,5 @@
 #include "espresso_based.h"
-#include <iostream>
+#include "sub_ingredients.h"
 
 EspressoBased::EspressoBased(const EspressoBased& esp)
 {
@@ -22,8 +22,6 @@ EspressoBased::EspressoBased(const EspressoBased& esp)
             ingredients.push_back(new Water { unitsub });
     }
 }
-
-
 
 void EspressoBased::operator=(const EspressoBased& esp)
 {
@@ -55,4 +53,79 @@ EspressoBased::~EspressoBased()
         delete i;
     ingredients.clear();
     // std::cout <<"espressobase destructor called "<<std::endl;
+}
+
+void EspressoBased::brew()
+{
+    using namespace ftxui;
+    using namespace std::chrono_literals;
+
+    std::string reset_position;
+    for (float percentage = 0.0f; percentage <= 1.01f; percentage += 0.002f) {
+        std::string coffeebrewd = std::to_string(int(percentage * 100)) + "%";
+        std::shared_ptr<ftxui::Node> document {};
+        std::string msg {};
+
+        if (percentage < 0.2f) {
+            if (name == "Cappuccino") {
+                document = hbox({
+                    text("brewing Cappuccino :") | color(Color::Blue) | bgcolor(Color::DeepPink3),
+                    gauge(percentage) | flex,
+                    text(" " + coffeebrewd),
+                });
+            } else { // Mocha
+                document = hbox({
+                    text("brewing Mocha :") | color(Color::Blue) | bgcolor(Color::White),
+                    gauge(percentage) | flex,
+                    text(" " + coffeebrewd),
+                });
+            }
+        } else if (percentage < 0.45f) {
+            document = hbox({
+                text("adding Espresso :") | color(Color::RosyBrown) | bgcolor(Color::DarkOrange),
+                gauge(percentage) | flex,
+                text(" " + coffeebrewd),
+            });
+        } else if (percentage < 0.7f) {
+            document = hbox({
+                text("adding milk :") | color(Color::White) | bgcolor(Color::GrayDark),
+                gauge(percentage) | flex,
+                text(" " + coffeebrewd),
+            });
+        } else if (percentage < 0.8f) {
+            document = hbox({
+                text("adding foam :") | color(Color::Red) | bgcolor(Color::Black),
+                gauge(percentage) | flex,
+                text(" " + coffeebrewd),
+            });
+        } else if (percentage < 0.9f && name == "Mocha") {
+            document = hbox({
+                text("adding Chocklate :") | color(Color::SandyBrown) | bgcolor(Color::White),
+                gauge(percentage) | flex,
+                text(" " + coffeebrewd),
+            });
+        } else if (percentage < 0.98f) {
+            document = hbox({
+                text("waiting ... :") | color(Color::Blue) | bgcolor(Color::Black),
+                gauge(percentage) | flex,
+                text(" " + coffeebrewd),
+            });
+        } else {
+            document = hbox({
+                text("Ready to drink ! :") | color(Color::DarkSeaGreen) | bgcolor(Color::Black),
+                gauge(percentage) | flex,
+                text(" " + coffeebrewd),
+            });
+        }
+        auto screen = Screen(100, 1);
+        Render(screen, document);
+        std::cout << reset_position;
+        screen.Print();
+        reset_position = screen.ResetPosition();
+        if (name == "Cappuccino")
+            std::this_thread::sleep_for(0.035s);
+        else
+            std::this_thread::sleep_for(0.05s);
+    }
+    std::cout << std::endl;
 }
